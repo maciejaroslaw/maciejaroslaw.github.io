@@ -1,0 +1,70 @@
+* {
+  font-family: 'Roboto Mono', monospace;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+.bcg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url("../../img/bodybg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-filter: brightness(0.4);
+          filter: brightness(0.4);
+}
+
+.menu {
+  position: fixed;
+  width: 0;
+  overflow: hidden;
+  height: 6vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.active {
+  width: 100%;
+}
+
+.content {
+  text-align: center;
+  position: relative;
+  top: 30vh;
+}
+
+.content .content__introduction span.name {
+  font-size: 8vh;
+  word-spacing: -2vh;
+}
+
+.content .content__introduction p.about {
+  width: 50%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.content .content__education {
+  height: 50vh;
+  margin-top: 45vh;
+}
+
+.content .content__education h1 {
+  font-size: 50px;
+}
+
+.content .content__education p {
+  margin-top: 20px;
+  line-height: 30px;
+}
+/*# sourceMappingURL=style.css.map */
