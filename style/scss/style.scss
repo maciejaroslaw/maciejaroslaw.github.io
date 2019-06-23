@@ -4,9 +4,12 @@
     margin: 0;
     color: white;
 }
-// body{
-//     height: 300vh;
-// }
+body{
+    // height: 300vh;
+}
+h1{
+    font-size: 50px;
+}
 .bcg{
     width: 100%;
     height: 100vh;
@@ -17,55 +20,98 @@
     background-image: url('../../img/bodybg.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    filter: brightness(0.4);
+    filter: brightness(0.3);
 }
 .menu{
     // border: 1px solid red;
     position: fixed;
+    top: 0;
+    left: 100%;
     width: 0;
     overflow: hidden;
     height: 6vh;
-    background-color: rgba(255, 255, 255, .9);
-    color: black;
     transition: .5s;
+    ul{
+        text-align: right;
+        li{
+            display: inline-block;
+            text-align: center;
+            font-size: 2.5vh;
+            line-height: 6vh;
+            width: 15%;
+            height: 6vh;
+            cursor: pointer;
+        }
+    }
 }
 .active{
     width: 100%;
+    left: 0;
 }
 .content{
     text-align: center;
-    position: relative;
-    top: 30vh;
     .content__introduction {
-        
+        margin-top: 32vh;
 
-        span.name{
-            font-size: 8vh;
-            // font-family: 'Roboto Mono', monospace;
+        span.siteName{
+            font-size: 9vh;
             word-spacing: -2vh;
         }
-        p.about{
-            // border: 2px solid red;
+        p.intro{
             width: 50%;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
+            position: relative;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 20px;
             line-height: 30px;
         }
     }
 
     .content__education{
-        // border: 2px solid red;
-        height: 50vh;
-        margin-top: 45vh;
-        
-        h1{
-            font-size: 50px;
+        text-align: left;
+        box-sizing: border-box;
+        // background-color: rgba(49, 47, 47, 0.8);
+        height: 400px;
+        margin-top: 50vh;
+        padding: 40px;
+        opacity: 0;
+        transition: 0.4s;
+        img{
+            width: 30%;
+            float: left;
         }
-        p{
-            margin-top: 20px;
-            line-height: 30px;
+        .about{
+            float: left;
+            width: 60%;
+            margin-left: 40px;
+            p{
+                margin-top: 20px;
+                line-height: 30px;
+            }
         }
     }
+    .education--active{
+        opacity: 1;
+    }
+    .content__tech{
+        margin-top: 35vh;
+        opacity: 0;
+        transition: 0.4s;
+        display: grid;
+        img{
+            width: 200px;
+        }
+        grid-row-gap: 50px;
+        // border: 2px solid #BADA55;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 100px 200px 200px 200px;
+        h1{
+            grid-column: 1 / 4;        
+        }
+    }
+    .tech--active{
+        opacity: 1;
+    }
+
 }

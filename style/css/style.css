@@ -5,6 +5,10 @@
   color: white;
 }
 
+h1 {
+  font-size: 50px;
+}
+
 .bcg {
   width: 100%;
   height: 100vh;
@@ -15,56 +19,121 @@
   background-image: url("../../img/bodybg.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-filter: brightness(0.4);
-          filter: brightness(0.4);
+  -webkit-filter: brightness(0.3);
+          filter: brightness(0.3);
 }
 
 .menu {
   position: fixed;
+  top: 0;
+  left: 100%;
   width: 0;
   overflow: hidden;
   height: 6vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: black;
   -webkit-transition: .5s;
   transition: .5s;
 }
 
+.menu ul {
+  text-align: right;
+}
+
+.menu ul li {
+  display: inline-block;
+  text-align: center;
+  font-size: 2.5vh;
+  line-height: 6vh;
+  width: 15%;
+  height: 6vh;
+  cursor: pointer;
+}
+
 .active {
   width: 100%;
+  left: 0;
 }
 
 .content {
   text-align: center;
-  position: relative;
-  top: 30vh;
 }
 
-.content .content__introduction span.name {
-  font-size: 8vh;
+.content .content__introduction {
+  margin-top: 32vh;
+}
+
+.content .content__introduction span.siteName {
+  font-size: 9vh;
   word-spacing: -2vh;
 }
 
-.content .content__introduction p.about {
+.content .content__introduction p.intro {
   width: 50%;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+  top: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   font-size: 20px;
   line-height: 30px;
 }
 
 .content .content__education {
-  height: 50vh;
-  margin-top: 45vh;
+  text-align: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 400px;
+  margin-top: 50vh;
+  padding: 40px;
+  opacity: 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.content .content__education h1 {
-  font-size: 50px;
+.content .content__education img {
+  width: 30%;
+  float: left;
 }
 
-.content .content__education p {
+.content .content__education .about {
+  float: left;
+  width: 60%;
+  margin-left: 40px;
+}
+
+.content .content__education .about p {
   margin-top: 20px;
   line-height: 30px;
+}
+
+.content .education--active {
+  opacity: 1;
+}
+
+.content .content__tech {
+  margin-top: 35vh;
+  opacity: 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  display: -ms-grid;
+  display: grid;
+  grid-row-gap: 50px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 100px 200px 200px 200px;
+      grid-template-rows: 100px 200px 200px 200px;
+}
+
+.content .content__tech img {
+  width: 200px;
+}
+
+.content .content__tech h1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
+}
+
+.content .tech--active {
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */
