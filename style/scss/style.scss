@@ -20,17 +20,18 @@ h1{
     background-image: url('../../img/bodybg.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    filter: brightness(0.3);
+    filter: brightness(0.4);
 }
 .menu{
     // border: 1px solid red;
     position: fixed;
     top: 0;
-    left: 100%;
-    width: 0;
+    left: 0;
+    width: 100%;
     overflow: hidden;
     height: 6vh;
-    transition: .5s;
+    transition-duration: 1.3s;
+    
     ul{
         text-align: right;
         li{
@@ -41,18 +42,31 @@ h1{
             width: 15%;
             height: 6vh;
             cursor: pointer;
+            opacity: 1;
+            transition-duration: .3s;
         }
+        
+        // @for $i from 1 to 6 {
+        //     li:nth-of-type(#{$i}){
+        //         opacity: 0;
+        //         transition-delay: #{$i};             
+        //     }
+        // }
     }
 }
 .active{
     width: 100%;
     left: 0;
 }
+li.activeLi{
+    opacity: 1 !important;
+}
+
 .content{
     text-align: center;
     .content__introduction {
-        margin-top: 32vh;
-
+        margin-top: 50vh;
+        transform: translateY(-50%);
         span.siteName{
             font-size: 9vh;
             word-spacing: -2vh;
@@ -100,7 +114,7 @@ h1{
         transition: 0.4s;
         display: grid;
         img{
-            width: 200px;
+            width: 150px;
         }
         grid-row-gap: 50px;
         // border: 2px solid #BADA55;
@@ -115,3 +129,9 @@ h1{
     }
 
 }
+.notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }

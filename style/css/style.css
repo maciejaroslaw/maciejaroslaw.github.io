@@ -19,19 +19,19 @@ h1 {
   background-image: url("../../img/bodybg.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-filter: brightness(0.3);
-          filter: brightness(0.3);
+  -webkit-filter: brightness(0.4);
+          filter: brightness(0.4);
 }
 
 .menu {
   position: fixed;
   top: 0;
-  left: 100%;
-  width: 0;
+  left: 0;
+  width: 100%;
   overflow: hidden;
   height: 6vh;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition-duration: 1.3s;
+          transition-duration: 1.3s;
 }
 
 .menu ul {
@@ -46,6 +46,9 @@ h1 {
   width: 15%;
   height: 6vh;
   cursor: pointer;
+  opacity: 1;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
 }
 
 .active {
@@ -53,12 +56,18 @@ h1 {
   left: 0;
 }
 
+li.activeLi {
+  opacity: 1 !important;
+}
+
 .content {
   text-align: center;
 }
 
 .content .content__introduction {
-  margin-top: 32vh;
+  margin-top: 50vh;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 
 .content .content__introduction span.siteName {
@@ -124,7 +133,7 @@ h1 {
 }
 
 .content .content__tech img {
-  width: 200px;
+  width: 150px;
 }
 
 .content .content__tech h1 {
@@ -135,5 +144,10 @@ h1 {
 
 .content .tech--active {
   opacity: 1;
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  transition: none !important;
 }
 /*# sourceMappingURL=style.css.map */
