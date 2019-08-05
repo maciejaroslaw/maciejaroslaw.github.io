@@ -15,12 +15,17 @@
 <body>
     <div class="bcg"></div>
     <div class="menu">
+        <div class="menu__button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <ul>
-            <li>Jeden</li>
-            <li>Dwa</li>
-            <li>Trzy</li>
-            <li>Cztery</li>
-            <li>Pieć</li>
+            <li data-target=".content__introduction">Jeden</li>
+            <li data-target=".content__education">Dwa</li>
+            <li data-target=".content__tech">Trzy</li>
+            <li data-target="300">Cztery</li>
+            <li data-target="400">Pieć</li>
         </ul>
     </div>
     <div class="content">
@@ -47,6 +52,7 @@
         </div>
             
         <div class="content__tech">
+        <div class="wrapp">
             <h1>Technologie</h1>
             <div class="tech tech1">
                     <img src="https://img.icons8.com/color/200/000000/html-5.png">
@@ -66,6 +72,7 @@
             <div class="tech tech6">
                 <img src="img/redux-logo.png" alt="redux-logo">
             </div>
+        </div>
         </div>
     </div>
     <script src="script/script.js"></script>
