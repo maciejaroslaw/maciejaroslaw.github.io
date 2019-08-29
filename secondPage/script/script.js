@@ -23,7 +23,7 @@ function getEq(min, max){
         if(x%y!=0){
             y++;
         }
-        target.innerHTML = `${x}${s}${y}MOBILE`;
+        target.innerHTML = `MOBILE${x}${s}${y}`;
     }
 
     else{
