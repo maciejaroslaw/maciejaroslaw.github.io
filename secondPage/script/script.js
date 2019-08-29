@@ -9,7 +9,21 @@ let s;
 
 function getEq(min, max){
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        startButton.innerHTML = 'AM ON DE FONE';
+        x = Math.floor(Math.random() * (max - min) ) + min;
+        y = Math.floor(Math.random() * (max - min) ) + min;
+
+        let num = Math.floor(Math.random() * (4 - 1) ) + 1;
+        switch(num){
+            case 1: s = '+'; break;
+            case 2: s = '-'; break;
+            case 3: s = '*'; break;
+            case 4: s = ':'; break;
+        }
+        console.log(num);
+        if(x%y!=0){
+            y++;
+        }
+        target.innerHTML = `${x}${s}${y}MOBILE`;
     }
 
     else{
