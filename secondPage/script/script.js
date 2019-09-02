@@ -4,10 +4,15 @@ const input = document.querySelector('[name="result"]');
 const resultsButtons = document.querySelectorAll('.result');
 const form = document.querySelector('.dummy');
 const target = document.querySelector('.eq');
+let playerScore = 0;
 let x;
 let y;
 let s;
 let result;
+var id;
+let bar = document.querySelector('.bar');
+let barWidth = 0;
+let wrongCount = 0;
 
 function getEq(min, max){
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
@@ -25,7 +30,11 @@ function getEq(min, max){
                         button.innerHTML = `${result}`;
                     }
                     else{
-                        button.innerHTML = result + (Math.floor(Math.random() * (12 - 1) ) + 1)
+                        let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        if(buttonText<0){
+                            buttonText = buttonText * -1;
+                        }
+                        button.innerHTML = buttonText;
                     }
                 });
             break;
@@ -40,7 +49,11 @@ function getEq(min, max){
                         button.innerHTML = `${result}`;
                     }
                     else{
-                        button.innerHTML = result + (Math.floor(Math.random() * (12 - 1) ) + 1)
+                        let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        if(buttonText<0){
+                            buttonText = buttonText * -1;
+                        }
+                        button.innerHTML = buttonText;
                     }
                 });
             break;
@@ -54,7 +67,12 @@ function getEq(min, max){
                         button.innerHTML = `${result}`;
                     }
                     else{
-                        button.innerHTML = result + (Math.floor(Math.random() * (12 - 1) ) + 1)
+                        let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        if(buttonText<0){
+                            buttonText = buttonText * -1;
+                        }
+                        button.innerHTML = buttonText;
+
                     }
                 });
             break;
@@ -71,7 +89,11 @@ function getEq(min, max){
                         button.innerHTML = `${result}`;
                     }
                     else{
-                        button.innerHTML = result + (Math.floor(Math.random() * (12 - 1) ) + 1)
+                        let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        if(buttonText<0){
+                            buttonText = buttonText * -1;
+                        }
+                        button.innerHTML = buttonText;
                     }
                 });
             break; 
@@ -98,25 +120,14 @@ function getEq(min, max){
     }   
 }
 
-// function progressBar(){
-//     let bar = document.querySelector('.bar');
-//     let width = 0;
-//     var id = setInterval(()=>{
-//         if(width >= 100){
-//             clearInterval(id);
-//         }
-//         else{
-//             width = width + 0.1;
-//             bar.style.width = `${width}%`;
-//         }
-//     }, 10)
-// }
 
 startButton.addEventListener('click', ()=>{
     getEq(1, 50);
     document.querySelector('.starter').style.display = 'none';
     document.querySelector('.content').style.display = 'block';
     startButton.style.display = 'none';
+    
+    progressBar(0);
 })
 
 form.addEventListener('submit', (e)=>{
@@ -129,18 +140,58 @@ form.addEventListener('submit', (e)=>{
         getEq(1, 50);
     }
 })
+
 resultsButtons.forEach(button => {
     button.addEventListener('click', () =>{
         if(button.classList.contains(`result${rightResult}`)){
-            console.log("I AM THE RIGHT ONE");
             getEq(1, 50);
+            playerScore++;
+            addPoints();
+            progressBar(barWidth - 10);
         }
         else{
-            console.log("I AM NOT");
+            shake();
+            wrongCount++;
+            if(wrongCount===3){
+                progressBar(barWidth + 10);
+                wrongCount = 0;
+            }
         }
     })
 });
 
+function addPoints(){
+    const score = document.querySelector('.score');
+    score.innerHTML = `Score: ${playerScore}`;
+}
 
+function shake(){
+    target.style.animationName = `shake`;
+    target.addEventListener('animationend', () =>{
+        target.style.animationName = `none`;
+    })
+}
+
+function progressBar(startWidth){
+    if(id){
+        clearInterval(id);
+    }
+    barWidth = startWidth;
+    id = setInterval(()=>{
+        if(barWidth >= 100){
+            clearInterval(id);
+            document.querySelector('.content').style.display = 'none';
+            document.querySelector('.starter').style.display = 'block';
+            startButton.innerHTML = 'Again!';
+            startButton.style.display = 'block';
+            document.querySelector('.endScore').style.display = `inline-block`;
+            document.querySelector('.endScore').innerHTML = `Your score: ${playerScore}`;
+        }
+        else{
+            barWidth = barWidth + 0.1;
+            bar.style.width = `${barWidth}%`;
+        }
+    }, 15)
+}
 
 
