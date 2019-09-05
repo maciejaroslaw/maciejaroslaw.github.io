@@ -14,11 +14,12 @@ let bar = document.querySelector('.bar');
 let barWidth = 0;
 let wrongCount = 0;
 
-function getEq(min, max){
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
-        
+
+function getEq(min, max){  
+        let checkResult = [];
         let num = Math.floor(Math.random() * (5 - 1) ) + 1;
         rightResult = Math.floor(Math.random() * (5 - 1) ) + 1;
+
         switch(num){
             case 1: 
                 s = '+'; 
@@ -31,6 +32,10 @@ function getEq(min, max){
                     }
                     else{
                         let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        while(checkResult.includes(buttonText)===true){
+                            buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        }
+                        checkResult.push(buttonText);
                         if(buttonText<0){
                             buttonText = buttonText * -1;
                         }
@@ -50,6 +55,12 @@ function getEq(min, max){
                     }
                     else{
                         let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        
+                        while(checkResult.includes(buttonText)===true){
+                            buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        }
+                        checkResult.push(buttonText);
+
                         if(buttonText<0){
                             buttonText = buttonText * -1;
                         }
@@ -68,6 +79,12 @@ function getEq(min, max){
                     }
                     else{
                         let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        
+                        while(checkResult.includes(buttonText)===true){
+                            buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        }
+                        checkResult.push(buttonText);
+
                         if(buttonText<0){
                             buttonText = buttonText * -1;
                         }
@@ -90,6 +107,12 @@ function getEq(min, max){
                     }
                     else{
                         let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        
+                        while(checkResult.includes(buttonText)===true){
+                            buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
+                        }
+                        checkResult.push(buttonText);
+
                         if(buttonText<0){
                             buttonText = buttonText * -1;
                         }
@@ -98,26 +121,7 @@ function getEq(min, max){
                 });
             break; 
         }
-        target.innerHTML = `${x}${s}${y}`;
-    }
-
-    else{
-        x = Math.floor(Math.random() * (max - min) ) + min;
-        y = Math.floor(Math.random() * (max - min) ) + min;
-
-        let num = Math.floor(Math.random() * (4 - 1) ) + 1;
-        switch(num){
-            case 1: s = '+'; break;
-            case 2: s = '-'; break;
-            case 3: s = '*'; break;
-            case 4: s = ':'; break;
-        }
-        console.log(num);
-        if(x%y!=0){
-            y++;
-        }
-        target.innerHTML = `${x}${s}${y}`;
-    }   
+        target.innerHTML = `${x}${s}${y}`;    
 }
 
 
@@ -126,19 +130,9 @@ startButton.addEventListener('click', ()=>{
     document.querySelector('.starter').style.display = 'none';
     document.querySelector('.content').style.display = 'block';
     startButton.style.display = 'none';
-    
+    playerScore = 0;
+    addPoints();
     progressBar(0);
-})
-
-form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-
-    let inputResult = parseInt(input.value);
-    if(x+y===inputResult){
-        console.log("Correct!")
-        form.reset();
-        getEq(1, 50);
-    }
 })
 
 resultsButtons.forEach(button => {
@@ -151,11 +145,7 @@ resultsButtons.forEach(button => {
         }
         else{
             shake();
-            wrongCount++;
-            if(wrongCount===3){
-                progressBar(barWidth + 10);
-                wrongCount = 0;
-            }
+            progressBar(barWidth + 15);
         }
     })
 });
@@ -186,6 +176,7 @@ function progressBar(startWidth){
             startButton.style.display = 'block';
             document.querySelector('.endScore').style.display = `inline-block`;
             document.querySelector('.endScore').innerHTML = `Your score: ${playerScore}`;
+            platerScore = 0;
         }
         else{
             barWidth = barWidth + 0.1;

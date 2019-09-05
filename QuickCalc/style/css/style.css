@@ -4,6 +4,10 @@
   font-family: 'Pacifico', cursive;
 }
 
+body {
+  background-color: royalblue;
+}
+
 .starter {
   background-color: royalblue;
   color: white;
@@ -47,38 +51,45 @@
 .content {
   color: white;
   background-color: royalblue;
-  width: 50vw;
-  height: 70vh;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  top: 10vh;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  top: 0;
+  left: 0;
   display: none;
+  -webkit-transform: none;
+          transform: none;
 }
 
-@media only screen and (max-width: 640px) {
+@media only screen and (min-width: 640px) {
   .content {
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    -webkit-transform: none;
-            transform: none;
+    width: 50vw;
+    height: 80vh;
+    top: 5vh;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
   }
 }
 
 .content .progress {
+  border: 1px solid white;
   background-color: white;
   position: absolute;
-  bottom: 10%;
+  bottom: 0;
   width: 100%;
   height: 4vh;
 }
 
+@media only screen and (max-width: 640px) {
+  .content .progress {
+    bottom: 10%;
+  }
+}
+
 .content .progress .bar {
   width: 0%;
-  height: 5vh;
+  height: 4vh;
   background-color: royalblue;
 }
 
@@ -113,15 +124,9 @@
           animation-duration: 0.5s;
 }
 
-@media only screen and (max-width: 640px) {
-  .content .content__target .eq {
-    font-size: 10vh;
-  }
-}
-
-.content form {
+.content .answers {
   position: relative;
-  top: 14%;
+  top: 5%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr;
@@ -129,32 +134,10 @@
   grid-gap: 10px;
 }
 
-.content input {
-  color: black;
-  font-size: 4vh;
-  line-height: 5vh;
-  text-align: center;
-  border: none;
-  border-radius: 9px;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  width: 15vw;
-  height: 5vh;
-  padding: 10px;
-  display: none;
-}
-
-@media only screen and (min-width: 640px) {
-  .content input {
-    display: block;
+@media only screen and (max-width: 640px) {
+  .content .answers {
+    top: 14%;
   }
-}
-
-.content input:focus {
-  outline: none;
 }
 
 .content .result {
@@ -164,13 +147,8 @@
   background-color: #fff;
   font-size: 4vh;
   line-height: 4vh;
-  display: none;
-}
-
-@media only screen and (max-width: 640px) {
-  .content .result {
-    display: block;
-  }
+  display: block;
+  cursor: pointer;
 }
 
 .content .result:focus {
