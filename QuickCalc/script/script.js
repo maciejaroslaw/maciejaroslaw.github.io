@@ -29,6 +29,7 @@ function getEq(min, max){
                 resultsButtons.forEach(button => {
                     if(button.classList.contains(`result${rightResult}`)){
                         button.innerHTML = `${result}`;
+                        checkResult.push(result);
                     }
                     else{
                         let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
@@ -52,6 +53,7 @@ function getEq(min, max){
                 resultsButtons.forEach(button => {
                     if(button.classList.contains(`result${rightResult}`)){
                         button.innerHTML = `${result}`;
+                        checkResult.push(result)
                     }
                     else{
                         let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
@@ -76,6 +78,7 @@ function getEq(min, max){
                 resultsButtons.forEach(button => {
                     if(button.classList.contains(`result${rightResult}`)){
                         button.innerHTML = `${result}`;
+                        checkResult.push(result)
                     }
                     else{
                         let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
@@ -104,6 +107,7 @@ function getEq(min, max){
                 resultsButtons.forEach(button => {
                     if(button.classList.contains(`result${rightResult}`)){
                         button.innerHTML = `${result}`;
+                        checkResult.push(result)
                     }
                     else{
                         let buttonText = Math.floor(Math.random() * ((result + 15) - (result - 15)) ) + (result - 15);
