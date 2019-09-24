@@ -2,7 +2,6 @@
   font-family: 'Roboto Mono', monospace;
   padding: 0;
   margin: 0;
-  color: white;
 }
 
 html {
@@ -15,7 +14,7 @@ h1 {
 
 .bcg {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,10 +32,16 @@ h1 {
   width: 100%;
   height: 6vh;
   z-index: 9998;
+  color: white;
+}
+
+@media only screen and (max-width: 640px) {
+  .menu {
+    width: 100%;
+  }
 }
 
 .menu ul {
-  text-align: center;
   border: 1px solid white;
   opacity: 0;
   position: fixed;
@@ -57,7 +62,7 @@ h1 {
 .menu ul li {
   cursor: pointer;
   display: inline-block;
-  width: 15vw;
+  width: 19vw;
   height: 6vh;
   line-height: 6vh;
   font-size: 22px;
@@ -65,6 +70,12 @@ h1 {
   opacity: 0;
   -webkit-transition: opacity .4s, background-color .4s;
   transition: opacity .4s, background-color .4s;
+}
+
+@media only screen and (max-width: 640px) {
+  .menu ul li {
+    font-size: 10px;
+  }
 }
 
 .menu ul.open {
@@ -76,6 +87,13 @@ h1 {
   -webkit-transition: .7s;
   transition: .7s;
   opacity: 1;
+}
+
+@media only screen and (max-width: 640px) {
+  .menu ul.open {
+    left: 0;
+    width: 100%;
+  }
 }
 
 .menu ul.open li {
@@ -96,6 +114,8 @@ h1 {
   left: calc(100% - 70px);
   z-index: 9999;
   cursor: pointer;
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
 }
 
 .menu .menu__button span {
@@ -143,9 +163,16 @@ h1 {
           transform: rotate(-45deg);
 }
 
+@media only screen and (max-width: 640px) {
+  .menu .menu__button.open {
+    left: calc(100% - 30px);
+  }
+}
+
 .content {
   text-align: center;
   z-index: 0;
+  color: white;
 }
 
 .content .content__introduction {
@@ -162,6 +189,13 @@ h1 {
           transform: translateY(-50%);
 }
 
+@media only screen and (max-width: 640px) {
+  .content .content__introduction span.siteName {
+    font-size: 4vh;
+    top: 35vh;
+  }
+}
+
 .content .content__introduction p.intro {
   width: 50%;
   position: relative;
@@ -173,6 +207,13 @@ h1 {
           transform: translateX(-50%);
   font-size: 20px;
   line-height: 30px;
+}
+
+@media only screen and (max-width: 640px) {
+  .content .content__introduction p.intro {
+    font-size: 10px;
+    line-height: 20px;
+  }
 }
 
 .content .content__education {
@@ -196,6 +237,12 @@ h1 {
   position: relative;
 }
 
+@media only screen and (max-width: 640px) {
+  .content .content__education img {
+    display: none;
+  }
+}
+
 .content .content__education .about {
   position: relative;
   top: 50%;
@@ -206,9 +253,27 @@ h1 {
   margin-left: 40px;
 }
 
+@media only screen and (max-width: 640px) {
+  .content .content__education .about {
+    width: 100%;
+    height: 50vh;
+    margin-left: 0;
+  }
+  .content .content__education .about h1 {
+    font-size: 4vh;
+  }
+}
+
 .content .content__education .about p {
   margin-top: 20px;
   line-height: 30px;
+}
+
+@media only screen and (max-width: 640px) {
+  .content .content__education .about p {
+    font-size: 13px;
+    line-height: 21px;
+  }
 }
 
 .content .content__tech {
@@ -234,10 +299,34 @@ h1 {
   width: 150px;
 }
 
+@media only screen and (max-width: 640px) {
+  .content .content__tech .wrapp img {
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .content .content__tech .wrapp {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: 100px 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px 100px;
+  }
+}
+
 .content .content__tech .wrapp h1 {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-column: 1 / 4;
+}
+
+@media only screen and (max-width: 640px) {
+  .content .content__tech .wrapp h1 {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-column: 1 / 3;
+    font-size: 35px;
+  }
 }
 
 .content .content__projects {
@@ -247,6 +336,12 @@ h1 {
 .content .content__projects h1 {
   position: relative;
   top: 8vh;
+}
+
+@media only screen and (max-width: 640px) {
+  .content .content__projects h1 {
+    font-size: 30px;
+  }
 }
 
 .content .content__projects .container {
@@ -266,28 +361,14 @@ h1 {
   position: relative;
 }
 
-.content .content__projects .container .content1 {
-  background-image: url("../../img/QuickCalc_icon.png");
+@media only screen and (max-width: 640px) {
+  .content .content__projects .container__content {
+    width: 150px;
+    height: 150px;
+  }
 }
 
-.content .content__projects .container .content1::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -webkit-transition: .5s;
-  transition: .5s;
-  background-color: black;
-  opacity: 0;
-}
-
-.content .content__projects .container .content1:hover::before {
-  opacity: 0.5;
-}
-
-.content .content__projects .container .content1 p {
+.content .content__projects .container__content p {
   position: absolute;
   top: 5px;
   left: 5px;
@@ -298,23 +379,78 @@ h1 {
   text-align: left;
 }
 
-.content .content__projects .container .content1 p a:nth-child(1) {
+@media only screen and (max-width: 640px) {
+  .content .content__projects .container__content p {
+    font-size: 10px;
+  }
+}
+
+.content .content__projects .container__content p a {
+  color: white;
+  font-size: 45px;
   position: absolute;
+}
+
+@media only screen and (max-width: 640px) {
+  .content .content__projects .container__content p a {
+    font-size: 20px;
+  }
+}
+
+.content .content__projects .container__content p a:nth-child(1) {
   top: 200px;
   left: 80px;
-  font-size: 45px;
 }
 
-.content .content__projects .container .content1 p a:nth-child(2) {
-  position: absolute;
+@media only screen and (max-width: 640px) {
+  .content .content__projects .container__content p a:nth-child(1) {
+    top: 100px;
+    left: 40px;
+  }
+}
+
+.content .content__projects .container__content p a:nth-child(2) {
   top: 200px;
   left: 160px;
-  font-size: 45px;
 }
 
-.content .content__projects .container .content1:hover > p {
-  opacity: 1;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+@media only screen and (max-width: 640px) {
+  .content .content__projects .container__content p a:nth-child(2) {
+    top: 100px;
+    left: 80px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .content .content__projects .container__content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: .5s;
+    transition: .5s;
+    background-color: black;
+    opacity: 0;
+  }
+  .content .content__projects .container__content:hover::before {
+    opacity: 0.5;
+  }
+  .content .content__projects .container__content:hover > p {
+    opacity: 1;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+}
+
+.content .content__projects .container .content1 {
+  background-image: url("../../img/QuickCalc_icon.png");
+}
+
+@media only screen and (max-width: 640px) {
+  .content .content__projects .container .content1 {
+    background-size: 150px 150px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
