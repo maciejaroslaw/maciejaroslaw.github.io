@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.97);
+}
+
+.chilDiv {
+  width: 40px;
+  min-height: 40px;
+  border-radius: 20px;
+  background-color: #fff;
+  position: absolute;
+  z-index: 0;
+  -webkit-animation: vibrate-2 5s linear infinite both;
+          animation: vibrate-2 5s linear infinite both;
+  -webkit-box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 140px 90px #0ff;
+          box-shadow: 0 0 60px 30px #fff, 0 0 100px 60px #f0f, 0 0 140px 90px #0ff;
+}
+
+.circle {
+  width: 250vw;
+  height: 250vw;
+  border-radius: 125vw;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-box-shadow: inset 0 0 30px 115vw black;
+          box-shadow: inset 0 0 30px 115vw black;
+  -webkit-transition-duration: 1000ms;
+          transition-duration: 1000ms;
+  -webkit-transition-timing-function: cubic-bezier(0.31, 0.68, 0.32, 0.67);
+          transition-timing-function: cubic-bezier(0.31, 0.68, 0.32, 0.67);
+  -webkit-animation: vibrate-1 5s linear infinite both;
+          animation: vibrate-1 5s linear infinite both;
+  z-index: 1;
+}
+
+@-webkit-keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  20% {
+    -webkit-transform: translate(calc(-50% + 10px), calc(-50% + 10px));
+            transform: translate(calc(-50% + 10px), calc(-50% + 10px));
+  }
+  40% {
+    -webkit-transform: translate(calc(-50% - 10px), calc(-50% - 10px));
+            transform: translate(calc(-50% - 10px), calc(-50% - 10px));
+  }
+  60% {
+    -webkit-transform: translate(calc(-50% + 10px), calc(-50% + 10px));
+            transform: translate(calc(-50% + 10px), calc(-50% + 10px));
+  }
+  80% {
+    -webkit-transform: translate(calc(-50% + 10px), calc(-50% - 10px));
+            transform: translate(calc(-50% + 10px), calc(-50% - 10px));
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes vibrate-1 {
+  0% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+  20% {
+    -webkit-transform: translate(calc(-50% + 10px), calc(-50% + 10px));
+            transform: translate(calc(-50% + 10px), calc(-50% + 10px));
+  }
+  40% {
+    -webkit-transform: translate(calc(-50% - 10px), calc(-50% - 10px));
+            transform: translate(calc(-50% - 10px), calc(-50% - 10px));
+  }
+  60% {
+    -webkit-transform: translate(calc(-50% + 10px), calc(-50% + 10px));
+            transform: translate(calc(-50% + 10px), calc(-50% + 10px));
+  }
+  80% {
+    -webkit-transform: translate(calc(-50% + 10px), calc(-50% - 10px));
+            transform: translate(calc(-50% + 10px), calc(-50% - 10px));
+  }
+  100% {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+  }
+}
+
+@-webkit-keyframes vibrate-2 {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-6px, 6px);
+            transform: translate(-6px, 6px);
+  }
+  40% {
+    -webkit-transform: translate(-6px, -6px);
+            transform: translate(-6px, -6px);
+  }
+  60% {
+    -webkit-transform: translate(6px, 6px);
+            transform: translate(6px, 6px);
+  }
+  80% {
+    -webkit-transform: translate(6px, -6px);
+            transform: translate(6px, -6px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@keyframes vibrate-2 {
+  0% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  20% {
+    -webkit-transform: translate(-6px, 6px);
+            transform: translate(-6px, 6px);
+  }
+  40% {
+    -webkit-transform: translate(-6px, -6px);
+            transform: translate(-6px, -6px);
+  }
+  60% {
+    -webkit-transform: translate(6px, 6px);
+            transform: translate(6px, 6px);
+  }
+  80% {
+    -webkit-transform: translate(6px, -6px);
+            transform: translate(6px, -6px);
+  }
+  100% {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+/*# sourceMappingURL=style.css.map */
